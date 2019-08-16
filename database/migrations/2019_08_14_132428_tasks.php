@@ -11,6 +11,8 @@ class Tasks extends Migration
      *
      * @return void
      */
+
+    /** Столбцы базы данных **/
     public function up()
     {
         Schema::create('tasks', function (Blueprint $table) {

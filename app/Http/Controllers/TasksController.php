@@ -15,6 +15,8 @@ class TasksController extends Controller
         return $tasks;
     }
 
+    /** Получение метода post **/
+
     public function store(TasksRequest $request)
     {
         $tasks = new Tasks();
@@ -25,17 +27,16 @@ class TasksController extends Controller
         return $tasks;
     }
 
+    /** Получение метода get **/
+
     public function tasks(Request $request, $id)
     {
         $tasks = App\Tasks::findOrFail($id);
 
         return $tasks;
-
-        {
-        $tasks = App\Tasks::findOrFail($id);
-        return $tasks;
-        }
     }
+
+    /** Получение метода put **/
 
     public function edit(TasksRequest $request, $id)
     {
@@ -47,6 +48,8 @@ class TasksController extends Controller
         return $tasks;
     }
 
+    /** Получение метода delete **/
+
      public function delete(Request $request, $id)
      {
         $tasks = App\Tasks::findOrFail($id);
@@ -54,6 +57,8 @@ class TasksController extends Controller
 
         return '';
      }
+
+     /** Получение метода put **/
 
     public function close(Request $request, $id)
     {

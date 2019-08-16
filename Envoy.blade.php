@@ -25,31 +25,31 @@ done
 @endstory
 
 @task('mkdir', ['on' => 'dev'])
-mkdir tasks-mfilimonov
+mkdir trainee-mfilimonov
 @endtask
 
 @task('git', ['on' => 'dev'])
-git clone https://git.smartru.com/mfilimonov/web.git ./tasks-mfilimonov
+git clone https://git.smartru.com/mfilimonov/web.git ./trainee-mfilimonov
 @endtask
 
 @task('composer', ['on' => 'dev'])
-cd /var/www/tasks-mfilimonov
+cd /var/www/trainee-mfilimonov
 composer install
 @endtask
 
 @task('movie', ['on' => 'dev'])
-cd tasks-mfilimonov
+cd trainee-mfilimonov
 mv .env.staging .env
 @endtask
 
 @task('inZip', ['on' => 'dev'])
 cd /var/www/
-tar -cf zip_folder.tar ./tasks-mfilimonov/ --exclude-ignore=.tarignore --exclude "./tasks-mfilimonov/zip_folder.tar"
+tar -cf zip_folder.tar ./trainee-mfilimonov/ --exclude-ignore=.tarignore --exclude "./trainee-mfilimonov/zip_folder.tar"
 @endtask
 
 @task('tmpweb', ['on' => 'staging'])
 cd /var/www
-mkdir -v /var/www/tasks-mfilimonov
+mkdir -v /var/www/trainee-mfilimonov
 @endtask
 
 @task('scpZip', ['on' => 'dev'])
@@ -64,7 +64,7 @@ echo unzip!
 @endtask
 
 @task('migrate', ['on' => 'staging'])
-cd /var/www/tasks-mfilimonov
+cd /var/www/trainee-mfilimonov
 php artisan migrate
 @endtask
 
@@ -73,7 +73,7 @@ php artisan migrate
 @endtask
 
 @task('remove', ['on' => 'dev'])
-rm -rf tasks-mfilimonov zip_folder.tar
+rm -rf trainee-mfilimonov zip_folder.tar
 @endtask
 
 @task('remove2', ['on' => 'staging'])

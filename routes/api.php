@@ -13,7 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request, $locale) {
+    App::setLocale($locale);
     return $request->user();
 });
 
