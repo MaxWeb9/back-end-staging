@@ -1,9 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Tasks;
 use Illuminate\Http\Request;
 use App;
-use App\Http\Requests\TasksRequest ;
+use App\Http\Requests\TasksRequest;
+
 class TasksController extends Controller
 {
     public function index(Request $request)
@@ -11,35 +14,50 @@ class TasksController extends Controller
         $tasks = App\Tasks::all();
         return $tasks;
     }
+
     public function store(TasksRequest $request)
     {
         $tasks = new Tasks();
         $data = $request->validated();
         $tasks->fill($data);
         $tasks->save();
+
         return $tasks;
     }
-    public function task(Request $request, $id)
+
+    public function tasks(Request $request, $id)
     {
         $tasks = App\Tasks::findOrFail($id);
+
         return $tasks;
+
+        {
+        $tasks = App\Tasks::findOrFail($id);
+        return $tasks;
+        }
     }
+
     public function edit(TasksRequest $request, $id)
     {
-        $tasks = app\Tasks::findOrFail($id);
+        $tasks = App\Tasks::findOrFail($id);
         $data = $request->validated();
         $tasks->fill($data);
         $tasks->save();
+
         return $tasks;
     }
-    public function delete(Request $request, $id)
-    {
-        $tasks = app\Tasks::findOrFail($id);
+
+     public function delete(Request $request, $id)
+     {
+        $tasks = App\Tasks::findOrFail($id);
         $tasks->delete();
+
         return '';
-    }
+     }
+
     public function close(Request $request, $id)
     {
+
         $tasks = App\Tasks::findOrFail($id);
         if ($tasks->status != 0) {
             $tasks->status = 0;
@@ -47,7 +65,9 @@ class TasksController extends Controller
             return $tasks;
         }
         else {
-            return "Задача выполнена";
+            return "Уже закрыто";
         }
     }
+
+
 }
