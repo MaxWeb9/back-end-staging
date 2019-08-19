@@ -38,15 +38,15 @@ class TasksRequest extends FormRequest
     }
 
     /** Сообщения для вывода в json **/
-//    public function messages()
-//    {
-//        return [
-//            'title.required' => 'Введите задачу заново',
-//            'description.required' => 'Описание задачи не было введено',
-//            'status.required' => 1,
-//            'start_date.required' => '13.08.2019',
-//            'due_date.required' => '16.08.2019',
-//
-//        ];
-//    }
+    public function messages()
+    {
+        return [
+            'title.required' => 'Введите задачу заново',
+            'description.required' => 'Описание задачи не было введено',
+            'status.required' => 1,
+            'start_date.required' => '13.08.2019',
+            'due_date.required' => '16.08.2019',
+
+        ];
+    }
 }

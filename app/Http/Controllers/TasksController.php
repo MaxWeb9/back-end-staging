@@ -64,14 +64,22 @@ class TasksController extends Controller
     {
 
         $tasks = App\Tasks::findOrFail($id);
-        if ($tasks->status != 0) {
-            $tasks->status = 0;
-            $tasks->save();
-            return $tasks;
+//        if ($tasks->status != 0) {
+//            $tasks->status = 0;
+//            $tasks->save();
+//            return $tasks;
+//        }
+//        else {
+//            return "Уже закрыто";
+//        }
+
+
+        if ($tasks->is_closed()) {
+            throw new Exception('Уже закрыт', 403);
         }
-        else {
-            return "Уже закрыто";
-        }
+
+        $tasks->close()->save();
+        return $tasks;
     }
 
 
